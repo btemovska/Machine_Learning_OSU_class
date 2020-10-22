@@ -1,6 +1,6 @@
 import csv
 
-with open("C:/Users/btemo/Downloads/fashion-mnist_train.csv.zip/fashion-mnist_train.csv", newline='') as f:
+with open(""C:/Users/btemo/IdeaProjects/OSU Machine Learning/Fashion_MNINST_2/fashion-mnist_train.csv"", newline='') as f: #data was too large to import this will work
     reader = csv.reader(f)
     row_count = 0
     for row in reader:
