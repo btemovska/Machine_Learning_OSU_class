@@ -35,3 +35,20 @@ s <- seq(length(x_traj))
 arrows(x_traj[s], f(x_traj)[s], x_traj[s+1], f(x_traj)[s+1], col="red")
 ## Warning in arrows(x_traj[s], f(x_traj)[s], x_traj[s + 1], f(x_traj)[s + :
 ## zero-length arrow is of indeterminate angle and so skipped
+
+
+#example 2
+f <- function(x){(x[1]-1)^2+x[2]^2/3+x[3]^2/4 + x[1]^2*x[2]^2*x[3]^2}
+grad <- function(x){
+  t <- c(0,0,0)
+  t[1] <- 2*(x[1]-1)+2*x[1]*x[2]^2*x[3]^2
+  t[2] <- 2*x[2]/3+2*x[2]*x[1]^2*x[3]^2
+  t[3] <- x[3]/2+2*x[3]*x[1]^2*x[2]^2
+  return (t)}
+x <- c(3,2,2)
+alpha <- 0.02
+for(iter in 1:600){
+  x <- x - alpha*grad(x)
+}
+print(x) #1.0000000000 -0.0001406544 -0.0012526627
+print(f(x)) #3.988856e-07
