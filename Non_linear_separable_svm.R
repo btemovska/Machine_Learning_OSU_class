@@ -62,7 +62,7 @@ ypred <- predict(svmfit, dat)
 (misclass <- table(predict = ypred, truth = dat$y))
 
 #         truth
-#predict  0   1   2
+#predict  gi0   1   2
 #         0  33   4   3
 #         1  13 141  10
 #         2   4   5  37
