@@ -69,3 +69,10 @@ ypred <- predict(svmfit, dat)
 
 
 
+dat <- data.frame(x = Khan$xtrain, y=as.factor(Khan$ytrain))
+(out <- svm(y~., data = dat, kernel = "linear", cost=10))
+
+
+dat.te <- data.frame(x=Khan$xtest, y=as.factor(Khan$ytest))
+pred.te <- predict(out, newdata=dat.te)
+table(pred.te, dat.te$y)
